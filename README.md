@@ -1,9 +1,9 @@
 # AWS-Lambda-
-**1. Description of Selected Problem and Algorithm
-**   The selected problem is to create and manage AWS Lambda functions for reading data from a DynamoDB table named "Atmosfera." The used algorithm involves using Python scripts within Lambda functions to read temperatura and humidade values from the table.
+**1. Description of Selected Problem and Algorithm**
+   The selected problem is to create and manage AWS Lambda functions for reading data from a DynamoDB table named "Atmosfera." The used algorithm involves using Python scripts within Lambda functions to read temperatura and humidade values from the table.
 
-**2. System Architecture and Specifications
-**  •	Architecture: Serverless architecture using AWS Lambda and API Gateway.
+**2. System Architecture and Specifications**
+•	Architecture: Serverless architecture using AWS Lambda and API Gateway.
       •	Technologies:
       •	AWS Lambda for function execution.
       •	DynamoDB for data storage.
@@ -17,15 +17,14 @@
 •	getTemperatura: Reads temperatura from DynamoDB.
 •	getHumidade: Reads humidade from DynamoDB.
 
-  •	Code for getTemperatura Function
-  import json
-import boto3
-def lambda_handler(event, context):
-    dynamodb = boto3.resource('dynamodb')
-    tableTemperatures = dynamodb.Table('Atmosfera')
-    response = tableTemperatures.scan()
-    return {
-        'statusCode': 200,
-        'body': response['Items'][0]['temperatura']
-    }
+  **Complete Source Code / Scripts**
   
+The script can be directly used within AWS Lambda to create the respective functions. For a ready-to-work setup:
+
+**Create DynamoDB Table:**
+Table Name: Atmosfera
+      Attributes: sala (String, Primary Key), temperatura (Number), humidade (Number).
+**Create Lambda Functions:**
+      Use the provided code snippets for getTemperatura and getHumidade.
+      Setup API Gateway:
+      Create an API to trigger the Lambda functions and expose them via HTTP endpoints.
